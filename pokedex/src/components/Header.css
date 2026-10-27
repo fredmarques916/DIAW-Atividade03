@@ -1,0 +1,155 @@
+.pokedex-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--screen-surface);
+  border: 3px solid var(--screen-border);
+  box-shadow: var(--pixel-shadow);
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.header-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Brand & LEDs */
+.pokedex-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.pokedex-led-sensor {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--screen-bg);
+  border: 2px solid var(--screen-border);
+  padding: 4px 8px;
+  border-radius: 20px;
+}
+
+.main-lens-blue {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #93c5fd, #2563eb 60%, #1e3a8a);
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 10px #3b82f6;
+  animation: pulseLed 3s infinite ease-in-out;
+}
+
+.mini-led {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1px solid #000;
+}
+
+.led-red { background: #ef4444; box-shadow: 0 0 4px #ef4444; }
+.led-yellow { background: #eab308; box-shadow: 0 0 4px #eab308; }
+.led-green { background: #22c55e; box-shadow: 0 0 4px #22c55e; }
+
+.pokedex-title-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.pokedex-title {
+  font-family: var(--font-pixel);
+  font-size: 1.25rem;
+  color: var(--screen-text);
+  letter-spacing: 1px;
+  line-height: 1.1;
+}
+
+.pokedex-subtitle {
+  font-family: var(--font-retro);
+  font-size: 0.62rem;
+  color: var(--screen-text-muted);
+  letter-spacing: 0.8px;
+}
+
+/* Global Quick Tools */
+.header-quick-tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tool-btn {
+  padding: 6px 10px;
+  font-size: 0.6rem;
+}
+
+.tool-btn.muted {
+  opacity: 0.6;
+}
+
+/* Navigation Tabs */
+.header-nav-tabs {
+  display: flex;
+  gap: 8px;
+  border-top: 2px dashed var(--screen-border);
+  padding-top: 10px;
+}
+
+.nav-tab-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--screen-bg);
+  color: var(--screen-text);
+  border: 2px solid var(--screen-border);
+  font-family: var(--font-pixel);
+  font-size: 0.65rem;
+  cursor: pointer;
+  box-shadow: var(--pixel-shadow-sm);
+  transition: all 0.1s ease;
+}
+
+.nav-tab-btn:hover {
+  background: var(--screen-surface-alt);
+  transform: translateY(-2px);
+}
+
+.nav-tab-btn:active {
+  transform: translateY(1px);
+}
+
+.nav-tab-btn.active {
+  background: var(--accent-gold);
+  color: #000;
+  border-color: #000;
+  font-weight: bold;
+  box-shadow: 3px 3px 0px #000;
+  outline: 2px dashed #000;
+  outline-offset: 1px;
+}
+
+@media (max-width: 680px) {
+  .header-top-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header-quick-tools {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .tool-text {
+    display: none;
+  }
+  .nav-tab-btn span {
+    font-size: 0.55rem;
+  }
+}

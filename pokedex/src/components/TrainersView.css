@@ -1,0 +1,270 @@
+.trainers-view-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.trainers-header-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  gap: 16px;
+  flex-wrap: wrap;
+  background: var(--screen-surface);
+  border: 3px solid var(--screen-border);
+  box-shadow: var(--pixel-shadow);
+}
+
+.trainers-header-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.trainers-title {
+  font-family: var(--font-pixel);
+  font-size: 0.85rem;
+  color: var(--screen-text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.title-icon {
+  color: var(--accent-gold);
+}
+
+.trainers-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--screen-text-muted);
+}
+
+.trainers-search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--screen-bg);
+  border: 2px solid var(--screen-border);
+  padding: 6px 12px;
+  min-width: 240px;
+}
+
+.trainers-search-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--screen-text);
+  font-family: var(--font-retro);
+  font-size: 0.8rem;
+  width: 100%;
+}
+
+/* Trainers Grid */
+.trainers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.trainer-card {
+  background: var(--screen-surface);
+  border: 3px solid var(--screen-border);
+  box-shadow: var(--pixel-shadow);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.trainer-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.trainer-avatar-box {
+  width: 48px;
+  height: 48px;
+  background: var(--screen-bg);
+  border: 2px solid var(--screen-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.trainer-meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.trainer-name {
+  font-family: var(--font-pixel);
+  font-size: 0.85rem;
+  color: var(--screen-text);
+}
+
+.trainer-title-badge {
+  font-family: var(--font-retro);
+  font-size: 0.65rem;
+  color: var(--screen-text-muted);
+}
+
+.trainer-gym-badge {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: var(--accent-gold);
+  font-weight: 600;
+}
+
+.trainer-badges-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--screen-surface-alt);
+  border: 2px solid var(--screen-border);
+  padding: 4px 8px;
+  min-width: 65px;
+}
+
+.badges-number {
+  font-family: var(--font-digit);
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--screen-text);
+  line-height: 1;
+}
+
+.badges-text {
+  font-family: var(--font-pixel);
+  font-size: 0.45rem;
+  color: var(--screen-text-muted);
+}
+
+/* Gym Badges Row */
+.trainer-badges-row {
+  display: flex;
+  gap: 6px;
+  background: var(--screen-bg);
+  padding: 6px 10px;
+  border: 1px solid var(--screen-border);
+}
+
+.gym-badge-icon {
+  font-size: 1rem;
+  transition: transform 0.1s;
+}
+
+.gym-badge-icon.locked {
+  filter: grayscale(1) opacity(0.25);
+}
+
+.gym-badge-icon.earned:hover {
+  transform: scale(1.2);
+}
+
+/* Team Section */
+.trainer-team-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.team-header-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.team-title {
+  font-family: var(--font-pixel);
+  font-size: 0.58rem;
+  color: var(--screen-text-muted);
+}
+
+.team-hint {
+  font-family: var(--font-retro);
+  font-size: 0.55rem;
+  color: var(--accent-blue);
+}
+
+.team-pokemon-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 8px;
+}
+
+.team-pokemon-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  background: var(--screen-surface-alt);
+  border: 2px solid var(--screen-border);
+  cursor: pointer;
+  transition: transform 0.1s ease, background 0.1s ease;
+}
+
+.team-pokemon-item:hover {
+  transform: translateY(-2px);
+  background: var(--screen-bg);
+  border-color: var(--accent-gold);
+}
+
+.team-sprite-wrap {
+  width: 36px;
+  height: 36px;
+  background: var(--screen-surface);
+  border: 1px solid var(--screen-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.team-poke-sprite {
+  max-width: 32px;
+  max-height: 32px;
+  object-fit: contain;
+}
+
+.team-poke-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  overflow: hidden;
+}
+
+.team-poke-id {
+  font-family: var(--font-pixel);
+  font-size: 0.5rem;
+  color: var(--screen-text-muted);
+}
+
+.team-poke-name {
+  font-family: var(--font-retro);
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: var(--screen-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.team-poke-types {
+  display: flex;
+  gap: 3px;
+}
+
+.mini-type-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1px solid #000;
+}
