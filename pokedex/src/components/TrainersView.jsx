@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Award, Search, Sparkles } from 'lucide-react'
+import { Award, Search } from 'lucide-react'
 import {
   formatPokemonId,
   getPokemonSprite,
@@ -126,9 +126,6 @@ export default function TrainersView({
 
                 <div className="team-pokemon-list">
                   {team.map((poke, index) => {
-                    const primaryType = poke.types[0]?.name || 'normal'
-                    const typeStyle = getTypeStyle(primaryType)
-
                     return (
                       <div
                         key={`${trainer.id}-${poke.id}-${index}`}

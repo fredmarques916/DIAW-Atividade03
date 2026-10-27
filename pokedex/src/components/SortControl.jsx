@@ -1,4 +1,4 @@
-import { ArrowDownUp, Star, Sparkles, Image as ImageIcon } from 'lucide-react'
+import { ArrowDownUp, Star, Image as ImageIcon } from 'lucide-react'
 import { soundFx } from '../utils/soundEffects'
 import './SortControl.css'
 

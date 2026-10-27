@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import confetti from 'canvas-confetti'
 import { Swords, Trophy, RotateCcw } from 'lucide-react'
 import {
@@ -17,18 +17,11 @@ export default function PokemonComparison({
   onSetCompareList,
   onOpenDetails
 }) {
-  const [pokemonAId, setPokemonAId] = useState(
-    compareList[0]?.id || allPokemon[0]?.id || 1
-  )
-  const [pokemonBId, setPokemonBId] = useState(
-    compareList[1]?.id || (allPokemon[3]?.id || 4)
-  )
+  const [manualFighterAId, setManualFighterAId] = useState(null)
+  const [manualFighterBId, setManualFighterBId] = useState(null)
 
-  // Update when compareList prop changes
-  useEffect(() => {
-    if (compareList[0]) setPokemonAId(compareList[0].id)
-    if (compareList[1]) setPokemonBId(compareList[1].id)
-  }, [compareList])
+  const pokemonAId = manualFighterAId ?? compareList[0]?.id ?? allPokemon[0]?.id ?? 1
+  const pokemonBId = manualFighterBId ?? compareList[1]?.id ?? allPokemon[3]?.id ?? 4
 
   const pokeA = allPokemon.find((p) => p.id === Number(pokemonAId)) || allPokemon[0]
   const pokeB = allPokemon.find((p) => p.id === Number(pokemonBId)) || allPokemon[3]
@@ -59,20 +52,32 @@ export default function PokemonComparison({
   }
 
   const handleSelectA = (e) => {
-    setPokemonAId(Number(e.target.value))
+    const id = Number(e.target.value)
+    setManualFighterAId(id)
     soundFx.playClick()
+    if (onSetCompareList) {
+      const match = allPokemon.find((p) => p.id === id)
+      if (match) onSetCompareList([match, pokeB])
+    }
   }
 
   const handleSelectB = (e) => {
-    setPokemonBId(Number(e.target.value))
+    const id = Number(e.target.value)
+    setManualFighterBId(id)
     soundFx.playClick()
+    if (onSetCompareList) {
+      const match = allPokemon.find((p) => p.id === id)
+      if (match) onSetCompareList([pokeA, match])
+    }
   }
 
   const handleSwap = () => {
     soundFx.playClick()
-    const temp = pokemonAId
-    setPokemonAId(pokemonBId)
-    setPokemonBId(temp)
+    setManualFighterAId(pokemonBId)
+    setManualFighterBId(pokemonAId)
+    if (onSetCompareList) {
+      onSetCompareList([pokeB, pokeA])
+    }
   }
 
   return (
