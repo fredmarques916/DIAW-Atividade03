@@ -1,111 +1,377 @@
+/* ==========================================================================
+   POKÉDEX 2D GAMEBOY EDITION - DESIGN SYSTEM & TOKENS
+   Aesthetic: Authentic Handheld GameBoy Console & 2D Retro RPG
+   ========================================================================== */
+
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  /* Common typography */
+  --font-pixel: 'Press Start 2P', monospace;
+  --font-retro: 'Silkscreen', monospace;
+  --font-digit: 'VT323', monospace;
+  --font-body: 'Outfit', sans-serif;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  /* Default Theme: GameBoy Color / Modern Retro */
+  --shell-bg: #c92a2a;
+  --shell-dark: #8b1818;
+  --shell-light: #ff6b6b;
+  --shell-border: #4a0c0c;
+  
+  --bezel-bg: #2b2b36;
+  --bezel-text: #8e9297;
+  
+  --screen-bg: #e8f5e9;
+  --screen-surface: #ffffff;
+  --screen-surface-alt: #f1f8e9;
+  --screen-text: #1b262c;
+  --screen-text-muted: #546e7a;
+  --screen-border: #263238;
+  
+  --accent-gold: #f59e0b;
+  --accent-blue: #0284c7;
+  --accent-green: #10b981;
+  --accent-red: #ef4444;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --btn-a: #c026d3;
+  --btn-b: #9333ea;
+  --dpad-color: #1e293b;
+  --dpad-border: #0f172a;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  --scanline-opacity: 0.04;
+  --pixel-shadow: 4px 4px 0px rgba(0, 0, 0, 0.85);
+  --pixel-shadow-sm: 2px 2px 0px rgba(0, 0, 0, 0.85);
+  --pixel-shadow-inset: inset 2px 2px 0px rgba(255, 255, 255, 0.25), inset -2px -2px 0px rgba(0, 0, 0, 0.4);
+
+  --radius-pixel: 0px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
+/* 🟢 Theme: Classic GameBoy DMG-01 (Authentic 4-color pea-soup LCD) */
+[data-theme='dmg'] {
+  --shell-bg: #c4c4be;
+  --shell-dark: #9c9c94;
+  --shell-light: #e0e0da;
+  --shell-border: #52524e;
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+  --bezel-bg: #5a5a66;
+  --bezel-text: #8b8b99;
+
+  --screen-bg: #8bac0f;
+  --screen-surface: #9bbc0f;
+  --screen-surface-alt: #8bac0f;
+  --screen-text: #0f380f;
+  --screen-text-muted: #306230;
+  --screen-border: #0f380f;
+
+  --accent-gold: #306230;
+  --accent-blue: #306230;
+  --accent-green: #0f380f;
+  --accent-red: #8b1818;
+
+  --btn-a: #8b1840;
+  --btn-b: #8b1840;
+  --dpad-color: #2b2b2b;
+  --dpad-border: #141414;
+
+  --scanline-opacity: 0.12;
+  --pixel-shadow: 4px 4px 0px #0f380f;
+  --pixel-shadow-sm: 2px 2px 0px #0f380f;
+}
+
+/* 🔴 Theme: Pokédex Kanto OS (Classic Red Device) */
+[data-theme='kanto'] {
+  --shell-bg: #dc2626;
+  --shell-dark: #991b1b;
+  --shell-light: #f87171;
+  --shell-border: #450a0a;
+
+  --bezel-bg: #1e1e24;
+  --bezel-text: #a1a1aa;
+
+  --screen-bg: #0c1a24;
+  --screen-surface: #132738;
+  --screen-surface-alt: #1a354b;
+  --screen-text: #e0f2fe;
+  --screen-text-muted: #7dd3fc;
+  --screen-border: #38bdf8;
+
+  --accent-gold: #facc15;
+  --accent-blue: #38bdf8;
+  --accent-green: #34d399;
+  --accent-red: #f87171;
+
+  --btn-a: #ef4444;
+  --btn-b: #f59e0b;
+  --dpad-color: #18181b;
+  --dpad-border: #09090b;
+
+  --scanline-opacity: 0.08;
+  --pixel-shadow: 4px 4px 0px rgba(0, 0, 0, 0.9);
+  --pixel-shadow-sm: 2px 2px 0px rgba(0, 0, 0, 0.9);
+}
+
+/* 🟣 Theme: GameBoy Color - Atomic Purple */
+[data-theme='color'] {
+  --shell-bg: #5b21b6;
+  --shell-dark: #3b0764;
+  --shell-light: #7c3aed;
+  --shell-border: #2e1065;
+
+  --bezel-bg: #1f1b2e;
+  --bezel-text: #c4b5fd;
+
+  --screen-bg: #f8fafc;
+  --screen-surface: #ffffff;
+  --screen-surface-alt: #f1f5f9;
+  --screen-text: #0f172a;
+  --screen-text-muted: #64748b;
+  --screen-border: #0f172a;
+
+  --accent-gold: #eab308;
+  --accent-blue: #0284c7;
+  --accent-green: #16a34a;
+  --accent-red: #dc2626;
+
+  --btn-a: #ec4899;
+  --btn-b: #a855f7;
+  --dpad-color: #334155;
+  --dpad-border: #1e293b;
+
+  --scanline-opacity: 0.04;
+  --pixel-shadow: 4px 4px 0px #0f172a;
+  --pixel-shadow-sm: 2px 2px 0px #0f172a;
+}
+
+/* 🌙 Theme: Dark Cyberpunk Matrix */
+[data-theme='dark'] {
+  --shell-bg: #111827;
+  --shell-dark: #030712;
+  --shell-light: #1f2937;
+  --shell-border: #000000;
+
+  --bezel-bg: #090d16;
+  --bezel-text: #9ca3af;
+
+  --screen-bg: #0b130e;
+  --screen-surface: #112217;
+  --screen-surface-alt: #172d1f;
+  --screen-text: #86efac;
+  --screen-text-muted: #4ade80;
+  --screen-border: #22c55e;
+
+  --accent-gold: #fbbf24;
+  --accent-blue: #38bdf8;
+  --accent-green: #22c55e;
+  --accent-red: #f43f5e;
+
+  --btn-a: #10b981;
+  --btn-b: #059669;
+  --dpad-color: #0f172a;
+  --dpad-border: #020617;
+
+  --scanline-opacity: 0.15;
+  --pixel-shadow: 4px 4px 0px #000000;
+  --pixel-shadow-sm: 2px 2px 0px #000000;
+}
+
+/* Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
+  font-family: var(--font-body);
+  background-color: #0b0f19;
+  color: var(--screen-text);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 50% 10%, rgba(220, 38, 38, 0.15), transparent 60%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 32px 32px, 32px 32px;
+  -webkit-font-smoothing: antialiased;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+/* Scanline Effect */
+.scanlines {
+  position: relative;
+}
+.scanlines::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.03),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.03)
+  );
+  z-index: 10;
+  background-size: 100% 3px, 4px 100%;
+  pointer-events: none;
+  opacity: var(--scanline-opacity);
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
+/* Authentic Pixel Borders */
+.pixel-box {
+  background: var(--screen-surface);
+  border: 3px solid var(--screen-border);
+  box-shadow: var(--pixel-shadow);
+  position: relative;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
+.pixel-box-sm {
+  background: var(--screen-surface);
+  border: 2px solid var(--screen-border);
+  box-shadow: var(--pixel-shadow-sm);
+}
+
+.pixel-btn {
+  font-family: var(--font-pixel);
+  font-size: 0.65rem;
+  letter-spacing: 0.5px;
+  background: var(--screen-surface);
+  color: var(--screen-text);
+  border: 3px solid var(--screen-border);
+  box-shadow: var(--pixel-shadow-sm);
+  padding: 8px 14px;
+  cursor: pointer;
   display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.1s;
+  user-select: none;
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+.pixel-btn:hover {
+  filter: brightness(1.08);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.9);
+}
+
+.pixel-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.9);
+}
+
+.pixel-btn.primary {
+  background: var(--accent-gold);
+  color: #000;
+  font-weight: bold;
+}
+
+.pixel-btn.danger {
+  background: var(--accent-red);
+  color: #fff;
+}
+
+.pixel-btn.success {
+  background: var(--accent-green);
+  color: #fff;
+}
+
+/* Badges & Tags */
+.pixel-badge {
+  font-family: var(--font-retro);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border: 2px solid #000;
+  box-shadow: 1px 1px 0px #000;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  letter-spacing: 0.5px;
+}
+
+/* Custom Scrollbars in 2D style */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--screen-bg);
+  border: 2px solid var(--screen-border);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--screen-border);
+  border: 1px solid var(--screen-surface);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-gold);
+}
+
+/* Animations */
+@keyframes crtTurnOn {
+  0% {
+    transform: scaleY(0.005) scaleX(0);
+    filter: brightness(30);
+    opacity: 0;
+  }
+  50% {
+    transform: scaleY(0.005) scaleX(1);
+    filter: brightness(20);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1) scaleX(1);
+    filter: brightness(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pixelBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes pokeWiggle {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-12deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(12deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes pulseLed {
+  0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 4px #ef4444); }
+  50% { opacity: 1; filter: drop-shadow(0 0 9px #ff2222); }
+}
+
+.anim-bounce {
+  animation: pixelBounce 1.5s infinite ease-in-out;
+}
+
+.anim-wiggle {
+  animation: pokeWiggle 0.8s ease-in-out;
+}
+
+.led-battery {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ef4444;
+  box-shadow: 0 0 6px #ef4444;
+  animation: pulseLed 2s infinite ease-in-out;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
